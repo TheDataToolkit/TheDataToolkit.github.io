@@ -3,250 +3,269 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Data Science Roadmap (2026) | The Data Path</title>
 <meta name="description" content="A complete roadmap to becoming a data scientist. Learn Python, SQL, statistics, machine learning, projects, and deployment in the right order.">
-
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-body{
-    background:#0E1420;
-    color:#EDEAE2;
-    font-family:'IBM Plex Sans',sans-serif;
-    margin:0;
-    line-height:1.7;
+:root{
+  --ink:#0E1420; --panel:#161D2C; --panel-2:#1D2536; --grid:#2A3348;
+  --paper:#EDEAE2; --paper-dim:#A9AEBE; --amber:#E8A33D; --teal:#4FB6A8; --line:#33405C;
 }
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--ink); color:var(--paper); font-family:'IBM Plex Sans',sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased;}
+a{color:inherit;}
+.wrap{max-width:760px; margin:0 auto; padding:0 28px;}
 
-.container{
-    max-width:900px;
-    margin:auto;
-    padding:70px 25px;
+nav{position:sticky; top:0; z-index:50; background:rgba(14,20,32,.9); backdrop-filter:blur(8px); border-bottom:1px solid var(--grid);}
+nav .inner{max-width:1120px; margin:0 auto; padding:0 28px; display:flex; justify-content:space-between; align-items:center; height:68px;}
+.brand{font-family:'Fraunces',serif; font-size:20px; font-weight:600; text-decoration:none;}
+.brand .dot{color:var(--amber);}
+.back{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--paper-dim); text-decoration:none;}
+.back:hover{color:var(--paper);}
+
+article{padding:64px 0 40px;}
+.tag{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--teal); text-transform:uppercase; letter-spacing:.06em; margin-bottom:18px; display:flex; align-items:center; gap:10px;}
+.tag::before{content:''; width:24px; height:1px; background:var(--teal);}
+
+h1{font-family:'Fraunces',serif; font-weight:500; font-size:clamp(30px,4.5vw,44px); line-height:1.08; margin-bottom:16px;}
+.dek{font-size:17px; color:var(--paper-dim); max-width:620px; margin-bottom:24px;}
+.meta{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--paper-dim); margin-bottom:48px; padding-bottom:24px; border-bottom:1px solid var(--grid); display:flex; gap:18px; flex-wrap:wrap;}
+.meta .pill{color:var(--teal);}
+
+.verdict{background:var(--panel); border:1px solid var(--grid); border-left:3px solid var(--amber); border-radius:4px; padding:24px; margin-bottom:40px;}
+.verdict-label{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--amber); text-transform:uppercase; display:block; margin-bottom:10px;}
+.verdict p{margin:0;}
+
+figure{margin:0 0 48px;}
+.fig-panel{background:var(--panel); border:1px solid var(--grid); border-radius:4px; padding:26px;}
+figcaption{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--paper-dim); text-align:center; margin-top:12px;}
+
+.toc{background:var(--panel); border:1px solid var(--grid); border-radius:4px; padding:24px 28px; margin-bottom:56px;}
+.toc-label{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--paper-dim); text-transform:uppercase; letter-spacing:.05em; margin-bottom:14px;}
+.toc ol{list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:10px 24px;}
+.toc a{font-size:14.5px; display:flex; gap:10px; align-items:baseline;}
+.toc a:hover{color:var(--amber);}
+.toc .n{font-family:'IBM Plex Mono',monospace; color:var(--amber); font-size:12px;}
+
+.step{margin:64px 0; scroll-margin-top:90px;}
+.step-head{display:flex; align-items:center; gap:14px; margin-bottom:20px;}
+.step-num{
+  font-family:'IBM Plex Mono',monospace; font-size:14px; color:var(--ink); background:var(--amber);
+  width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-weight:600;
 }
+h2{font-family:'Fraunces',serif; font-size:26px; font-weight:500;}
+h3{font-family:'Fraunces',serif; font-size:18px; font-weight:500; margin:22px 0 10px; color:var(--paper);}
 
-h1,h2{
-    font-family:'Fraunces',serif;
-    font-weight:500;
-}
+.card{background:var(--panel); border:1px solid var(--grid); border-radius:6px; padding:28px;}
+p{margin-bottom:16px; font-size:15.5px;}
+.card ul{margin:10px 0 0 20px;}
+.card li{margin-bottom:8px; font-size:15px;}
 
-h1{
-    font-size:54px;
-    margin-bottom:10px;
-}
+.skill-tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px;}
+.skill-tag{font-family:'IBM Plex Mono',monospace; font-size:12px; background:var(--panel-2); border:1px solid var(--line); color:var(--paper-dim); padding:6px 12px; border-radius:20px;}
 
-.subtitle{
-    color:#A9AEBE;
-    font-size:18px;
-    margin-bottom:50px;
-}
+.resource{margin-top:22px; padding-top:18px; border-top:1px solid var(--grid); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;}
+.resource-label{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--paper-dim); text-transform:uppercase; letter-spacing:.05em;}
+.resource-link{font-family:'IBM Plex Sans',sans-serif; font-size:14.5px; font-weight:600; color:var(--amber); text-decoration:none;}
+.resource-link:hover{text-decoration:underline;}
+.resource-link::after{content:' →';}
 
-.section{
-    margin:70px 0;
-}
+.cta-box{background:var(--panel); border:1px solid var(--grid); border-radius:4px; padding:28px; text-align:center; margin:56px 0;}
+.btn-primary{display:inline-block; background:var(--amber); color:var(--ink); padding:13px 26px; text-decoration:none; font-weight:600; border-radius:2px;}
+.btn-primary:hover{background:#f2b354;}
 
-.card{
-    background:#161D2C;
-    border:1px solid #2A3348;
-    border-radius:6px;
-    padding:28px;
-    margin-top:20px;
-}
+footer{border-top:1px solid var(--grid); padding:36px 0; margin-top:40px;}
+.disclosure{font-size:12px; color:var(--paper-dim); line-height:1.6;}
 
-ul{
-    margin-top:10px;
-}
-
-a{
-    color:#E8A33D;
-    text-decoration:none;
-}
-
-a:hover{
-    text-decoration:underline;
-}
-
-.resource{
-    margin-top:20px;
-    padding-top:15px;
-    border-top:1px solid #2A3348;
-}
-
-.timeline{
-    font-family:'IBM Plex Mono',monospace;
-    color:#4FB6A8;
+@media (max-width:600px){
+  .toc ol{grid-template-columns:1fr;}
 }
 </style>
 </head>
-
 <body>
 
-<div class="container">
+<nav>
+  <div class="inner">
+    <a class="brand" href="index.html">The Data Path<span class="dot">.</span></a>
+    <a class="back" href="index.html">← All articles</a>
+  </div>
+</nav>
 
-<h1>Complete Data Science Roadmap</h1>
+<article>
+  <div class="wrap">
+    <div class="tag">Pillar Guide</div>
+    <h1>The Complete Data Science Roadmap</h1>
+    <p class="dek">Every skill you actually need to become a data scientist — in the order that makes them click, not the order a course catalog happens to list them.</p>
+    <div class="meta">
+      <span>Updated July 2026 · 12 min read</span>
+      <span class="pill">Estimated timeline: 6–12 months</span>
+    </div>
 
-<p class="subtitle">
-Learn the skills needed to become a data scientist—from Python fundamentals to deploying machine learning projects.
-</p>
+    <div class="verdict">
+      <span class="verdict-label">How to use this roadmap</span>
+      <p>Don't try to learn everything at once. Work through these seven stages roughly in order — each one builds on the last. Most people underestimate steps 5–7 (projects, Git, deployment) and it's exactly what separates a resume that gets interviews from one that doesn't.</p>
+    </div>
 
-<p class="timeline">
-Estimated Timeline: 6–12 Months
-</p>
+    <figure>
+      <div class="fig-panel">
+        <svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg">
+          <line x1="30" y1="100" x2="650" y2="100" stroke="#2A3348" stroke-width="2"/>
+          <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#A9AEBE">
+            <circle cx="60" cy="100" r="7" fill="#0E1420" stroke="#E8A33D" stroke-width="2.5"/>
+            <text x="60" y="130" text-anchor="middle">Python</text>
+            <circle cx="160" cy="100" r="7" fill="#0E1420" stroke="#E8A33D" stroke-width="2.5"/>
+            <text x="160" y="130" text-anchor="middle">SQL</text>
+            <circle cx="260" cy="100" r="7" fill="#0E1420" stroke="#E8A33D" stroke-width="2.5"/>
+            <text x="260" y="130" text-anchor="middle">Stats</text>
+            <circle cx="360" cy="100" r="7" fill="#0E1420" stroke="#E8A33D" stroke-width="2.5"/>
+            <text x="360" y="130" text-anchor="middle">ML</text>
+            <circle cx="460" cy="100" r="7" fill="#0E1420" stroke="#E8A33D" stroke-width="2.5"/>
+            <text x="460" y="130" text-anchor="middle">Projects</text>
+            <circle cx="550" cy="100" r="7" fill="#0E1420" stroke="#E8A33D" stroke-width="2.5"/>
+            <text x="550" y="130" text-anchor="middle">Git</text>
+            <circle cx="630" cy="100" r="8" fill="#E8A33D"/>
+            <text x="630" y="130" text-anchor="middle" fill="#E8A33D">Deploy</text>
+          </g>
+        </svg>
+      </div>
+      <figcaption>fig. 1 — the seven stages, in sequence</figcaption>
+    </figure>
 
-<div class="section">
+    <div class="toc">
+      <div class="toc-label">On this page</div>
+      <ol>
+        <li><a href="#step1"><span class="n">01</span> Learn Python</a></li>
+        <li><a href="#step2"><span class="n">02</span> Master SQL</a></li>
+        <li><a href="#step3"><span class="n">03</span> Learn Statistics</a></li>
+        <li><a href="#step4"><span class="n">04</span> Learn Machine Learning</a></li>
+        <li><a href="#step5"><span class="n">05</span> Build Projects</a></li>
+        <li><a href="#step6"><span class="n">06</span> Learn Git &amp; GitHub</a></li>
+        <li><a href="#step7"><span class="n">07</span> Deploy Your Projects</a></li>
+      </ol>
+    </div>
 
-<h2>1. Learn Python</h2>
+    <div class="step" id="step1">
+      <div class="step-head"><div class="step-num">1</div><h2>Learn Python</h2></div>
+      <div class="card">
+        <p>Python is the backbone of nearly every data science workflow. Start with core programming fundamentals before touching data-specific libraries — skipping this step is the most common reason beginners stall out later.</p>
+        <h3>What to cover</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Variables & data types</span>
+          <span class="skill-tag">Loops</span>
+          <span class="skill-tag">Functions</span>
+          <span class="skill-tag">OOP basics</span>
+          <span class="skill-tag">File handling</span>
+          <span class="skill-tag">pandas</span>
+          <span class="skill-tag">NumPy</span>
+          <span class="skill-tag">Matplotlib</span>
+        </div>
+      </div>
+    </div>
 
-<div class="card">
+    <div class="step" id="step2">
+      <div class="step-head"><div class="step-num">2</div><h2>Master SQL</h2></div>
+      <div class="card">
+        <p>SQL is how you'll actually pull the data you analyze — it shows up in more job postings than almost any other single skill in this list, and it's usually tested directly in interviews.</p>
+        <div class="skill-tags">
+          <span class="skill-tag">SELECT / WHERE</span>
+          <span class="skill-tag">GROUP BY</span>
+          <span class="skill-tag">ORDER BY</span>
+          <span class="skill-tag">JOINs</span>
+          <span class="skill-tag">Window functions</span>
+        </div>
+        <div class="resource">
+          <span class="resource-label">Recommended guide</span>
+          <a class="resource-link" href="best-sql-course.html">Best SQL Course for Beginners</a>
+        </div>
+      </div>
+    </div>
 
-<p>
-Python is the most popular programming language in data science. Start by learning programming fundamentals before moving into data analysis libraries.
-</p>
+    <div class="step" id="step3">
+      <div class="step-head"><div class="step-num">3</div><h2>Learn Statistics</h2></div>
+      <div class="card">
+        <p>This is the part that actually lets you interpret results correctly instead of just running code and hoping the output means what you think it means.</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Mean & median</span>
+          <span class="skill-tag">Probability</span>
+          <span class="skill-tag">Variance</span>
+          <span class="skill-tag">Standard deviation</span>
+          <span class="skill-tag">Hypothesis testing</span>
+          <span class="skill-tag">Correlation</span>
+        </div>
+      </div>
+    </div>
 
-<ul>
-<li>Variables & Data Types</li>
-<li>Loops</li>
-<li>Functions</li>
-<li>Object-Oriented Programming</li>
-<li>File Handling</li>
-<li>pandas</li>
-<li>NumPy</li>
-<li>Matplotlib</li>
-</ul>
+    <div class="step" id="step4">
+      <div class="step-head"><div class="step-num">4</div><h2>Learn Machine Learning</h2></div>
+      <div class="card">
+        <p>Only start here once Python, SQL, and statistics feel comfortable — ML concepts lean heavily on all three, and rushing this stage is where most self-taught learners get discouraged.</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Linear regression</span>
+          <span class="skill-tag">Logistic regression</span>
+          <span class="skill-tag">K-Nearest Neighbors</span>
+          <span class="skill-tag">Decision trees</span>
+          <span class="skill-tag">Random forest</span>
+          <span class="skill-tag">Model evaluation</span>
+          <span class="skill-tag">Cross-validation</span>
+        </div>
+      </div>
+    </div>
 
-</div>
+    <div class="step" id="step5">
+      <div class="step-head"><div class="step-num">5</div><h2>Build Projects</h2></div>
+      <div class="card">
+        <p>Employers weigh real projects more heavily than certificates. Aim for 2-3 projects that each show a different part of the pipeline — data cleaning, exploratory analysis, visualization, and a trained model — rather than five projects that all look the same.</p>
+        <ul>
+          <li>Movie recommendation system</li>
+          <li>Sports match predictor</li>
+          <li>Sales dashboard</li>
+          <li>Customer churn prediction</li>
+        </ul>
+      </div>
+    </div>
 
-</div>
+    <div class="step" id="step6">
+      <div class="step-head"><div class="step-num">6</div><h2>Learn Git &amp; GitHub</h2></div>
+      <div class="card">
+        <p>Your projects only count if someone can actually see them. A public GitHub profile with clean commit history is often the first thing a hiring manager checks before they even read your resume.</p>
+        <div class="skill-tags">
+          <span class="skill-tag">git init</span>
+          <span class="skill-tag">git add</span>
+          <span class="skill-tag">git commit</span>
+          <span class="skill-tag">git push</span>
+          <span class="skill-tag">GitHub repositories</span>
+        </div>
+      </div>
+    </div>
 
-<div class="section">
+    <div class="step" id="step7">
+      <div class="step-head"><div class="step-num">7</div><h2>Deploy Your Projects</h2></div>
+      <div class="card">
+        <p>A model sitting in a Jupyter notebook is invisible to everyone but you. Deploying even one project as a live, clickable demo does more for your credibility than three more notebooks ever will.</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Streamlit</span>
+          <span class="skill-tag">GitHub Pages</span>
+          <span class="skill-tag">Docker (optional)</span>
+        </div>
+      </div>
+    </div>
 
-<h2>2. Master SQL</h2>
+    <div class="cta-box">
+      <h3 style="margin-bottom:10px;">Ready to start with the fundamentals?</h3>
+      <p style="color:var(--paper-dim); max-width:480px; margin:0 auto 20px;">DataCamp's interactive courses are a solid, low-friction way to build Python and SQL fluency before moving on to the rest of this roadmap.</p>
+      <a class="btn-primary" href="#" data-affiliate="datacamp">Start with Python Fundamentals →</a>
+    </div>
 
-<div class="card">
+  </div>
+</article>
 
-<p>
-SQL is the language used to retrieve, filter, aggregate, and analyze data stored in relational databases. It is one of the most requested skills in data science and analytics job postings.
-</p>
-
-<ul>
-<li>SELECT</li>
-<li>WHERE</li>
-<li>GROUP BY</li>
-<li>ORDER BY</li>
-<li>JOINS</li>
-<li>Window Functions</li>
-</ul>
-
-<div class="resource">
-
-<strong>Recommended Guide</strong>
-
-<p>
-<a href="best-sql-course.html">
-Best SQL Course for Beginners →
-</a>
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="section">
-
-<h2>3. Learn Statistics</h2>
-
-<div class="card">
-
-<ul>
-<li>Mean & Median</li>
-<li>Probability</li>
-<li>Variance</li>
-<li>Standard Deviation</li>
-<li>Hypothesis Testing</li>
-<li>Correlation</li>
-</ul>
-
-</div>
-
-</div>
-
-<div class="section">
-
-<h2>4. Learn Machine Learning</h2>
-
-<div class="card">
-
-<ul>
-<li>Linear Regression</li>
-<li>Logistic Regression</li>
-<li>K-Nearest Neighbors</li>
-<li>Decision Trees</li>
-<li>Random Forest</li>
-<li>Model Evaluation</li>
-<li>Cross Validation</li>
-</ul>
-
-</div>
-
-</div>
-
-<div class="section">
-
-<h2>5. Build Projects</h2>
-
-<div class="card">
-
-<p>
-Employers want to see real projects more than certificates. Build projects that demonstrate data cleaning, analysis, visualization, and machine learning.
-</p>
-
-<ul>
-<li>Movie Recommendation System</li>
-<li>Sports Match Predictor</li>
-<li>Sales Dashboard</li>
-<li>Customer Churn Prediction</li>
-</ul>
-
-</div>
-
-</div>
-
-<div class="section">
-
-<h2>6. Learn Git & GitHub</h2>
-
-<div class="card">
-
-<ul>
-<li>git init</li>
-<li>git add</li>
-<li>git commit</li>
-<li>git push</li>
-<li>GitHub Repositories</li>
-</ul>
-
-</div>
-
-</div>
-
-<div class="section">
-
-<h2>7. Deploy Your Projects</h2>
-
-<div class="card">
-
-<ul>
-<li>Streamlit</li>
-<li>GitHub Pages</li>
-<li>Docker (Optional)</li>
-</ul>
-
-</div>
-
-</div>
-
-</div>
+<footer>
+  <div class="wrap">
+    <p class="disclosure">Affiliate disclosure: This page may contain affiliate links. If you sign up for a course through one of these links, we may earn a commission at no additional cost to you. We only recommend resources we've researched thoroughly.</p>
+  </div>
+</footer>
 
 </body>
 </html>
