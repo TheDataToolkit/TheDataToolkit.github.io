@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4BMP9H5T2C"></script>
@@ -11,11 +10,8 @@
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-
 gtag('config', 'G-4BMP9H5T2C');
 </script>
-
-<meta charset="UTF-8">
 
 <title>The Data Path — Career roadmap for aspiring data scientists</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,7 +40,6 @@ gtag('config', 'G-4BMP9H5T2C');
   a{color:inherit; text-decoration:none;}
   .wrap{max-width:1120px; margin:0 auto; padding:0 28px;}
 
-  /* NAV */
   nav{
     position:sticky; top:0; z-index:50;
     background:rgba(14,20,32,0.88);
@@ -66,7 +61,6 @@ gtag('config', 'G-4BMP9H5T2C');
   }
   .nav-cta:hover{border-color:var(--amber); color:var(--amber);}
 
-  /* HERO */
   header.hero{padding:88px 0 40px; position:relative;}
   .eyebrow{
     font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.08em;
@@ -96,7 +90,6 @@ gtag('config', 'G-4BMP9H5T2C');
   }
   .btn-secondary:hover{border-color:var(--paper-dim);}
 
-  /* CHART — signature element */
   .chart-panel{
     background:var(--panel); border:1px solid var(--grid); border-radius:4px;
     padding:32px 32px 20px;
@@ -119,13 +112,11 @@ gtag('config', 'G-4BMP9H5T2C');
   .milestone text{font-family:'IBM Plex Mono', monospace; font-size:11px; fill:var(--paper-dim); transition:fill 0.15s ease;}
   .milestone:hover text{fill:var(--paper);}
 
-  /* SECTION HEADERS */
   .section{padding:80px 0;}
   .section-head{display:flex; align-items:baseline; justify-content:space-between; margin-bottom:36px; border-bottom:1px solid var(--grid); padding-bottom:18px;}
   .section-title{font-family:'Fraunces', serif; font-size:28px; font-weight:500;}
   .section-note{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--paper-dim);}
 
-  /* NOTEBOOK CELLS — article grid */
   .cells{display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;}
   .cell{
     background:var(--panel); border:1px solid var(--grid); border-radius:4px;
@@ -145,8 +136,11 @@ gtag('config', 'G-4BMP9H5T2C');
   .cell-desc{font-size:14px; color:var(--paper-dim); margin-bottom:16px;}
   .cell-link{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--paper);}
   .cell-link::after{content:' →'; color:var(--amber);}
+  .cell.soon{opacity:0.6;}
+  .cell.soon .cell-link{color:var(--paper-dim); cursor:default;}
+  .cell.soon .cell-link::after{content:'';}
+  .cell.soon .cell-tag{color:var(--paper-dim);}
 
-  /* EMAIL / TERMINAL CAPTURE */
   .terminal{
     background:var(--panel); border:1px solid var(--grid); border-radius:4px;
     padding:0; overflow:hidden;
@@ -215,7 +209,6 @@ gtag('config', 'G-4BMP9H5T2C');
         <div class="chart-title">y = est. salary ($k)</div>
       </div>
       <svg id="roadmap" viewBox="0 0 1000 340" preserveAspectRatio="xMidYMid meet">
-        <!-- gridlines -->
         <line class="grid-line" x1="60" y1="40" x2="60" y2="290"/>
         <line class="grid-line" x1="60" y1="290" x2="970" y2="290"/>
         <line class="grid-line" x1="60" y1="220" x2="970" y2="220" stroke-dasharray="3,5"/>
@@ -227,10 +220,8 @@ gtag('config', 'G-4BMP9H5T2C');
         <text class="axis-label" x="18" y="154">$100k</text>
         <text class="axis-label" x="18" y="84">$140k</text>
 
-        <!-- growth path -->
         <path class="growth-path" d="M 100 270 C 250 260, 300 230, 380 200 C 460 170, 480 140, 560 120 C 650 98, 700 90, 800 65 C 860 50, 900 45, 940 42"/>
 
-        <!-- milestones -->
         <g class="milestone" data-label="SQL & Python fundamentals">
           <circle cx="100" cy="270" r="5"/>
           <text x="100" y="310" text-anchor="middle">Start</text>
@@ -275,18 +266,18 @@ gtag('config', 'G-4BMP9H5T2C');
       <div class="cell">
         <div class="cell-io">In [2]: review.load("best_sql_course")</div>
         <div class="cell-body">
-          <span class="cell-tag">Bootcamp</span>
+          <span class="cell-tag">Course guide</span>
           <div class="cell-title">Exploring Popular SQL Courses</div>
-          <p class="cell-desc">A cost-per-hire breakdown using outcomes data, not testimonials.</p>
+          <p class="cell-desc">DataCamp, Coursera, and freeCodeCamp — which one actually gets you hired.</p>
           <a class="cell-link" href="best-sql-course.html">Read article</a>
         </div>
       </div>
       <div class="cell">
         <div class="cell-io">In [3]: review.load("best_college_laptops")</div>
         <div class="cell-body">
-          <span class="cell-tag">Certification</span>
-          <div class="cell-title">Best Laptops for College Students in 2026 (Tested Picks for Every Budget)</div>
-          <p class="cell-desc">Where they rank and why</p>
+          <span class="cell-tag">Buying guide</span>
+          <div class="cell-title">Best Laptops for College Students in 2026</div>
+          <p class="cell-desc">Tested picks for every budget — from MacBook Air to Acer Aspire.</p>
           <a class="cell-link" href="best-laptop-college.html">Read the breakdown</a>
         </div>
       </div>
@@ -307,25 +298,25 @@ gtag('config', 'G-4BMP9H5T2C');
           <span class="cell-tag">Pillar guide</span>
           <div class="cell-title">The Complete Data Science Career Roadmap</div>
           <p class="cell-desc">Skills, tools, certifications, and timelines — mapped by starting point.</p>
-          <a class="cell-link" href="#">Start the roadmap</a>
+          <a class="cell-link" href="roadmap.html">Start the roadmap</a>
         </div>
       </div>
       <div class="cell">
-        <div class="cell-io">Out[2]: salary.by_role()</div>
+        <div class="cell-io">Out[2]: ml.types()</div>
         <div class="cell-body">
-          <span class="cell-tag">Data</span>
-          <div class="cell-title">Data Analyst vs. Data Scientist: Real 2026 Salaries</div>
-          <p class="cell-desc">Pulled from public comp reports, not vendor marketing pages.</p>
-          <a class="cell-link" href="#">See the numbers</a>
+          <span class="cell-tag">Core concepts</span>
+          <div class="cell-title">The 4 Types of Machine Learning, Explained</div>
+          <p class="cell-desc">Supervised, unsupervised, semi-supervised, and reinforcement — with real use cases.</p>
+          <a class="cell-link" href="ml-types.html">See the breakdown</a>
         </div>
       </div>
-      <div class="cell">
+      <div class="cell soon">
         <div class="cell-io">Out[3]: portfolio.checklist()</div>
         <div class="cell-body">
-          <span class="cell-tag">Guide</span>
+          <span class="cell-tag">Coming soon</span>
           <div class="cell-title">5 Portfolio Projects That Actually Get Interviews</div>
           <p class="cell-desc">What hiring managers say they look for, in their own words.</p>
-          <a class="cell-link" href="#">Get the checklist</a>
+          <a class="cell-link">In progress</a>
         </div>
       </div>
     </div>
